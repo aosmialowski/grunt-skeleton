@@ -1,0 +1,20 @@
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "authors": [
+    "Andrzej Ośmiałowski <me@osmialowski.net>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "bootstrap": "~3.3",
+    "flexslider": "*"
+  }
+}
