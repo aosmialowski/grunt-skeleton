@@ -14,11 +14,11 @@ module.exports = function (grunt) {
 
     watch: {
       scripts: {
-        files: ['<%= app.src %>/scripts/**/*.js'],
+        files: ['<%= app.src %>/scripts/{,*/}*.js'],
         tasks: ['newer:eslint:all']
       },
       sass: {
-        files: ['<%= app.src %>/scss/**/*.scss'],
+        files: ['<%= app.src %>/scss/{,*/}*.scss'],
         tasks: ['sass', 'postcss:dev']
       },
       styles: {
