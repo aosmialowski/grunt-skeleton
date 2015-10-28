@@ -1,5 +1,5 @@
 {
-  "name": "foo",
+  "name": "application",
   "version": "1.0.0",
   "authors": [
     "Andrzej Ośmiałowski <me@osmialowski.net>"
@@ -12,9 +12,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "jquery": "~1.11.1",
-    "bootstrap": "~3.3",
-    "flexslider": "*"
-  }
+  "dependencies": {}
 }

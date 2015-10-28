@@ -1,0 +1,16 @@
+{
+  "src": ".",
+  "dist": "dist",
+  "tmp": "tmp",
+  "scripts": {
+    "server": {
+      "tmp/scripts/app.js": ["scripts/**/*.js"]
+    },
+    "dist": {
+      "dist/scripts/app.js": ["scripts/**/*.js"]
+    }
+  },
+  "files": [
+    { "expand": true, "cwd": "./bower_components/bootstrap/fonts", "src": ["**"], "dest": "dist/fonts" }
+  ]
+}
