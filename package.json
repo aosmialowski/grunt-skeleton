@@ -1,5 +1,5 @@
 {
-  "name": "foo",
+  "name": "_APPLICATION_NAME_",
   "version": "1.0.0",
   "private": true,
   "engines": {
