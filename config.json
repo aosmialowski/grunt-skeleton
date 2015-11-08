@@ -11,6 +11,7 @@
     }
   },
   "files": [
-    { "expand": true, "cwd": "./bower_components/bootstrap/fonts", "src": ["**"], "dest": "dist/fonts" }
+    { "expand": true, "cwd": "./node_modules/bootstrap-saas/assets/fonts", "src": ["**"], "dest": "dist/fonts" },
+    { "expand": true, "cwd": "./node_modules/bootstrap-saas/assets/fonts", "src": ["**"], "dest": "tmp/fonts" }
   ]
 }
