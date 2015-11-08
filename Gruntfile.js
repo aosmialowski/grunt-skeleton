@@ -8,6 +8,10 @@ module.exports = function (grunt) {
     config: grunt.file.readJSON('config.json'),
 
     watch: {
+      html: {
+        files: ['<%= config.src %>/*.html', '<%= config.src %>/partials/*.html'],
+        tasks: ['includereplace']
+      },
       scripts: {
         files: ['<%= config.src %>/scripts/**/*.js'],
         tasks: ['newer:eslint:all', 'browserify:server']
@@ -36,7 +40,9 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           files: [
-            '<%= config.src %>/{,*/}*.html',
+            '<%= config.src %>/*.html',
+            '<%= config.src %>/partials/*.html',
+            '<%= config.tmp %>/*.html',
             '<%= config.tmp %>/styles/{,*/}*.css',
             '<%= config.src %>/images/{,*/}*',
             '<%= config.tmp %>/scripts/{,*/}*.js'
@@ -44,10 +50,7 @@ module.exports = function (grunt) {
           host: 'localhost',
           port: 9000,
           server: {
-            baseDir: ['<%= config.tmp %>', '<%= config.src %>'],
-            routes: {
-              '/bower_components': './bower_components'
-            }
+            baseDir: ['<%= config.tmp %>', '<%= config.src %>']
           },
           ghostMode: {
             clicks: true,
@@ -206,6 +209,18 @@ module.exports = function (grunt) {
       }
     },
 
+    includereplace: {
+      build: {
+        options: {
+          prefix: '<!-- @',
+          suffix: ' -->',
+          includesDir: 'partials/'
+        },
+        src: '*.html',
+        dest: '<%= config.tmp %>/'
+      }
+    },
+
     copy: {
       dist: {
         files: [{
@@ -216,7 +231,8 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt,xml}',
             'images/**/*.webp',
-            '{,*/}*.html',
+            // TODO Uncomment to copy HTML files
+            //'{,*/}*.html',
             'styles/fonts/**/*.*',
             'fonts/**/*.*'
           ]
@@ -258,6 +274,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'browserify:server',
       'postcss',
+      'includereplace',
       'browserSync:livereload',
       'watch'
     ]);
