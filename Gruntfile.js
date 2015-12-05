@@ -8,10 +8,6 @@ module.exports = function (grunt) {
     config: grunt.file.readJSON('config.json'),
 
     watch: {
-      html: {
-        files: ['<%= config.src %>/*.html', '<%= config.src %>/partials/*.html'],
-        tasks: ['includereplace']
-      },
       scripts: {
         files: ['<%= config.src %>/scripts/**/*.js'],
         tasks: ['newer:eslint:all', 'browserify:server']
@@ -209,18 +205,6 @@ module.exports = function (grunt) {
       }
     },
 
-    includereplace: {
-      build: {
-        options: {
-          prefix: '<!-- @',
-          suffix: ' -->',
-          includesDir: 'partials/'
-        },
-        src: '*.html',
-        dest: '<%= config.tmp %>/'
-      }
-    },
-
     copy: {
       dist: {
         files: [{
@@ -274,7 +258,6 @@ module.exports = function (grunt) {
       'concurrent:server',
       'browserify:server',
       'postcss',
-      'includereplace',
       'browserSync:livereload',
       'watch'
     ]);
